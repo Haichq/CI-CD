@@ -1,0 +1,24 @@
+ #Create the configuration file 0 of 2 tests passingBy convention, Github action configuration files are allocated under /.github/workflows. In this exercise, we want to create a single action configuration.
+ #Specify the configuration name 0 of 1 tests passingFor identification, every configuration must have a unique name. In our exercise, we want to name the configuration Run action.
+ #Specify the configuration trigger 0 of 1 tests passingThe configuration is triggered on GitHub operations. In our exercise, we only want to trigger the configuration when the code is pushed.
+#Specify the Job within the Workflow 0 of 2 tests passingThe core of a GitHub Actions workflow is its job or jobs. In this task, you will create a job named "run-action" that runs on the ubuntu-latest version.
+ #Specify the Steps within the Job 0 of 1 tests passingWithin the run-action job, multiple steps can be performed. Your task is to configure the following steps:
+#Checkout: use the GitHub action actions/checkout@v2 to check out your repository.
+#Setup python: set up Python compiler in the instance environment using actions/setup-python@v2.
+#Check Python version: check the installed Python compiler version.
+
+name: Run action
+on: [push]
+jobs:
+  run-action:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with: 
+          python-version: "3.x"
+
+      - name: Check python version
+        run: python --version
